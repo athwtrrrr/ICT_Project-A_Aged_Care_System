@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aged Care System - Welcome</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Aged Care Management System (ACMS)</div>
+            <div class="tagline">Compassionate care for our seniors</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="main-content">
+            <section class="welcome-section">
+                <h1>Welcome to Our Aged Care Platform</h1>
+                <p class="large-text">Our online portal makes it easy for seniors, families, and caregivers to stay connected and manage care needs.</p>
+                
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-icon"><i class="fas fa-heart"></i></div>
+                        <h3>Personalized Care</h3>
+                        <p>Tailored care plans designed for each resident's unique needs and preferences.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon"><i class="fas fa-calendar-check"></i></div>
+                        <h3>Activity Programs</h3>
+                        <p>Daily social, recreational, and therapeutic activities to enhance quality of life.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon"><i class="fas fa-user-md"></i></div>
+                        <h3>Medical Support</h3>
+                        <p>24/7 access to nursing care and regular health monitoring.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="dashboard-section">
+                <div class="dashboard-card">
+                    <h2><i class="fas fa-home"></i> Our Facility</h2>
+                    <div class="facility-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-bed"></i>
+                            <span>50 Private Rooms</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-tree"></i>
+                            <span>Landscaped Gardens</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-utensils"></i>
+                            <span>Dining Services</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-wheelchair"></i>
+                            <span>Accessible Design</span>
+                        </div>
+                    </div>
+                    <p>Our state-of-the-art facility provides a safe, comfortable, and homelike environment with 24/7 professional care.</p>
+                </div>
+
+                <div class="dashboard-card services-card">
+                    <h2><i class="fas fa-hands-helping"></i> Our Services</h2>
+                    <div class="services-list">
+                        <div class="service-item">
+                            <h3><i class="fas fa-pills"></i> Medication Management</h3>
+                            <p>Professional administration and tracking of all medications</p>
+                        </div>
+                        <div class="service-item">
+                            <h3><i class="fas fa-bath"></i> Personal Care Assistance</h3>
+                            <p>Help with bathing, dressing, grooming and hygiene</p>
+                        </div>
+                        <div class="service-item">
+                            <h3><i class="fas fa-notes-medical"></i> Health Monitoring</h3>
+                            <p>Regular checks of vital signs and health status</p>
+                        </div>
+                        <div class="service-item">
+                            <h3><i class="fas fa-ambulance"></i> Emergency Response</h3>
+                            <p>24/7 emergency call system with rapid response</p>
+                        </div>
+                    </div>
+                    <a href="/services" class="view-all-btn">View All Services <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="dashboard-card testimonials-card">
+                    <h2><i class="fas fa-comment"></i> Family Testimonials</h2>
+                    <div class="testimonial">
+                        <p>"The care my mother receives is exceptional. The staff treat her with such dignity and respect."</p>
+                        <div class="testimonial-author">- Sarah J., Daughter</div>
+                    </div>
+                    <div class="testimonial">
+                        <p>"We have peace of mind knowing dad is safe and well cared for around the clock."</p>
+                        <div class="testimonial-author">- Michael T., Son</div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="login-form">
+                <h2>Sign In</h2>
+                <form action="/login" method="post">
+                    <div class="form-group">
+                        <label for="username">Username or Email</label>
+                        <input type="text" id="username" name="username" required aria-label="Enter your username or email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required aria-label="Enter your password">
+                    </div>
+                    
+                    <button type="submit" class="btn">Log In</button>
+                    
+                    <div class="forgot-password">
+                        <a href="/forgot-password" aria-label="Forgot password">Forgot your password?</a>
+                    </div>
+                </form>
+                
+                <div style="margin-top: 30px; text-align: center;">
+                    <p class="large-text">New to our platform?</p>
+                    <button class="btn" style="background-color: #5cb85c;" onclick="window.location.href='/register'">Register Now</button>
+                </div>
+        
+            </section>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/services">Our Services</a></li>
+                        <li><a href="/careers">Careers</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-phone"></i> 1800 AGEDCARE</p>
+                    <p><i class="fas fa-envelope"></i> info@agedcaresystem.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Care Street, Melbourne</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 Aged Care System. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>
