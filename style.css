@@ -346,3 +346,86 @@ footer {
         margin-top: 30px;
     }
 }
+
+/* Residents Profile Section */
+.residents-profile-section {
+    margin: 40px auto; /* Center horizontally */
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+    min-height: 80vh; /* Ensure the section takes up most of the viewport height */
+}
+
+.residents-profile-section h1 {
+    text-align: center;
+    color: #4a90e2;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.residents-table {
+    width: 80%; /* Adjust table width for better centering */
+    margin: 0 auto; /* Center horizontally */
+    border-collapse: collapse;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.residents-table th, .residents-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+.residents-table th {
+    background-color: #4a90e2;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.residents-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.residents-table tr:hover {
+    background-color: #e6f7ff;
+    cursor: pointer;
+}
+
+.residents-table td {
+    color: #555;
+}
+
+.residents-table td:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.residents-table td:last-child {
+    font-style: italic;
+    color: #4a90e2;
+}
+
+/* Responsive Design for Residents Table */
+@media (max-width: 768px) {
+    .residents-table th, .residents-table td {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .residents-profile-section h1 {
+        font-size: 1.5rem;
+    }
+}
