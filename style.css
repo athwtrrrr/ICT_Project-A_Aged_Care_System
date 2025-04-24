@@ -347,88 +347,201 @@ footer {
     }
 }
 
+/* Base for family portal*/
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom right, #e9f3ff, #f6f9fc);
+    color: #333;
+  }
+  
+  /* Navbar */
+  .navbar-brand {
+    font-weight: bold;
+  }
+  
+  /* Search Section */
+  .search-section {
+    background-color: #fff;
+  }
+  .form-control-sm,
+  .form-select-sm {
+    border-radius: 6px;
+    border: 1px solid #c8e0ff;
+  }
+  
+  /* Accordion & Cards */
+  .accordion .accordion-item {
+    border: 1px solid #d6e9ff;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  .accordion-button {
+    background-color: #f0f8ff;
+    color: #0d47a1;
+    font-weight: 500;
+  }
+  .accordion-body {
+    background-color: #ffffff;
+    padding: 1rem;
+  }
+  
+  /* No-results message */
+  #results p {
+    font-style: italic;
+    color: #666;
+  }
+  
 /* Residents Profile Section */
-.residents-profile-section {
-    margin: 40px auto; /* Center horizontally */
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center content horizontally */
-    justify-content: center; /* Center content vertically */
-    min-height: 80vh; /* Ensure the section takes up most of the viewport height */
-}
-
-.residents-profile-section h1 {
-    text-align: center;
-    color: #4a90e2;
-    font-size: 2rem;
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f5f7fa;
+  }
+  
+  .navbar-brand {
+    font-weight: bold;
+  }
+  
+  .sidebar {
+    background: linear-gradient(180deg, #e1f0ff, #f0f8ff);
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    border-right: 1px solid #ddd;
+  }
+  
+  .sidebar a {
+    color: #004085;
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+    text-decoration: none;
+    display: block;
+    padding: 0.4rem 0.5rem;
+    border-radius: 0.3rem;
+    transition: background-color 0.2s ease;
+  }
+  
+  .sidebar a:hover {
+    background-color: #d6eaff;
+  }
+  
+  .bg-light-blue {
+    background-color: #e7f3ff;
+  }
+  
+  .table th, .table td {
+    vertical-align: middle;
+  }
+  .sidebar h4 {
+    font-weight: bold;
     margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
+  }
+  .btn-sm {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+  .card {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
 
-.residents-table {
-    width: 80%; /* Adjust table width for better centering */
-    margin: 0 auto; /* Center horizontally */
-    border-collapse: collapse;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  .status-badge {
+    font-size: 0.85rem;
+    padding: 5px 10px;
+    border-radius: 20px;
+  }
+  .search-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+  }
+  .resident-card {
+    background-color: #e9f2fc;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #eaf4ff, #f5fbff);
+    color: #333;
+  }
+  
+  h2 {
+    font-weight: 600;
+  }
+  
+  .search-section {
+    background-color: #fff;
+    border-radius: 10px;
+  }
+  
+  input.form-control,
+  select.form-select {
+    height: 100%;
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+  }
+  
+  footer h5 {
+    font-weight: 600;
+  }
+  
+  footer p,
+  footer a {
+    font-size: 0.95rem;
+  }
+  /* Modal */
+/* Modal Form Styles */
+#residentForm.modal-content {
     border-radius: 8px;
     overflow: hidden;
-}
-
-.residents-table th, .residents-table td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-    font-size: 1rem;
-}
-
-.residents-table th {
-    background-color: #4a90e2;
-    color: white;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.residents-table tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-.residents-table tr:hover {
-    background-color: #e6f7ff;
-    cursor: pointer;
-}
-
-.residents-table td {
-    color: #555;
-}
-
-.residents-table td:first-child {
-    font-weight: bold;
-    color: #333;
-}
-
-.residents-table td:last-child {
-    font-style: italic;
-    color: #4a90e2;
-}
-
-/* Responsive Design for Residents Table */
-@media (max-width: 768px) {
-    .residents-table th, .residents-table td {
-        font-size: 0.9rem;
-        padding: 10px;
-    }
-
-    .residents-profile-section h1 {
-        font-size: 1.5rem;
-    }
-}
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Form Body */
+  #residentForm .modal-body {
+    background-color: #f4f8fc;
+    padding: 1.5rem 2rem;
+  }
+  
+  /* Labels */
+  #residentForm .form-label {
+    font-weight: 600;
+    color: #1e3a8a;
+    margin-bottom: 0.25rem;
+  }
+  
+  /* Inputs */
+  #residentForm .form-control {
+    border: 1px solid #c8daf1;
+    border-radius: 4px;
+    padding: 0.5rem 0.75rem;
+  }
+  #residentForm .form-control:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25);
+  }
+  
+  /* Grid spacing (in case Bootstrap’s g-3 isn’t enough) */
+  #residentForm .row.g-3 > [class*="col-"] {
+    margin-bottom: 1rem;
+  }
+  
+  /* Submit Button */
+  #residentForm .btn-primary {
+    background-color: #1e3a8a;
+    border-color: #1e3a8a;
+    width: 100%;
+    padding: 0.6rem;
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+  #residentForm .btn-primary:hover {
+    background-color: #374dbf;
+    border-color: #374dbf;
+  }
+  
 
 .staff-profile-section {
     margin: 40px auto;
