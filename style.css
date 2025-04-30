@@ -967,6 +967,31 @@ copyright {
   max-width: 900px;
 }
 
+/* Logo Styles */
+.logo {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.logo-image {
+  height: 50px;
+  width: auto;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
+.logo-image:hover {
+  transform: scale(1.05);
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2c5282;
+  letter-spacing: 1px;
+}
+
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
