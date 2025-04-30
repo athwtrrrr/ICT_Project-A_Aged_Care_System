@@ -3,101 +3,272 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ACMS - Aged Care Management System</title>
+  <title>ACMS - Services & Booking | Aged Care Management System</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
+
   <header class="navbar">
     <div class="container nav-container">
       <div class="logo">ACMS</div>
       <nav>
         <ul class="nav-links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Residents</a></li>
-          <li><a href="#">Staff</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Login</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="residents.html">Residents</a></li>
+          <li><a href="staff.html">Staff</a></li>
+          <li><a href="services.html" class="active">Services</a></li>
+          <li><a href="login.html">Login</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-    <main class="container">
-        <h1 class="page-title">Our Services</h1>
-        <p class="intro-text">We offer a comprehensive range of services tailored to meet the unique needs of each resident. Our aim is to provide a safe, comfortable, and dignified living environment.</p>
+  <main class="container">
+    <h1 class="page-title">Our Services</h1>
+    <p class="intro-text">At ACMS, we provide comprehensive care solutions tailored to meet the unique needs of each resident. Our dedicated team of healthcare professionals and support staff work together to ensure a safe, comfortable, and dignified living environment that promotes independence, well-being, and quality of life for all our residents.</p>
+    
+    <div class="booking-section">
+      <h2>Need to Book Accommodation for a Loved One?</h2>
+      <p>We make it easy to reserve a room or schedule a tour of our facilities. Our friendly staff are ready to assist you with the transition process.</p>
+      <button class="booking-btn" id="openBookingModal">Book Accommodation Now</button>
+    </div>
 
-        <div class="services-grid">
-            <div class="service-box">
-                <i class="fas fa-user-nurse"></i>
-                <h3>24/7 Nursing Care</h3>
-                <p>Round-the-clock access to trained medical professionals for continuous support.</p>
-            </div>
+    <div class="services-grid">
+      <div class="service-box">
+        <i class="fas fa-user-nurse"></i>
+        <h3>24/7 Nursing Care</h3>
+        <p>Round-the-clock access to trained medical professionals who provide continuous monitoring and support for all healthcare needs.</p>
+      </div>
 
-            <div class="service-box">
-                <i class="fas fa-pills"></i>
-                <h3>Medication Management</h3>
-                <p>Accurate administration and monitoring of prescribed medications.</p>
-            </div>
+      <div class="service-box">
+        <i class="fas fa-pills"></i>
+        <h3>Medication Management</h3>
+        <p>Accurate administration and monitoring of prescribed medications, ensuring proper dosages and timing for optimal health outcomes.</p>
+      </div>
 
-            <div class="service-box">
-                <i class="fas fa-bath"></i>
-                <h3>Personal Care Assistance</h3>
-                <p>Help with daily hygiene, grooming, bathing, and dressing needs.</p>
-            </div>
+      <div class="service-box">
+        <i class="fas fa-bath"></i>
+        <h3>Personal Care Assistance</h3>
+        <p>Compassionate help with daily hygiene, grooming, bathing, and dressing needs, maintaining dignity and independence.</p>
+      </div>
 
-            <div class="service-box">
-                <i class="fas fa-utensils"></i>
-                <h3>Meal Services</h3>
-                <p>Nutritious meals prepared with dietary needs in mind, served daily.</p>
-            </div>
+      <div class="service-box">
+        <i class="fas fa-utensils"></i>
+        <h3>Meal Services</h3>
+        <p>Nutritious and delicious meals prepared by professional chefs with dietary needs in mind, served in a restaurant-style dining room.</p>
+      </div>
 
-            <div class="service-box">
-                <i class="fas fa-dumbbell"></i>
-                <h3>Therapy & Rehab</h3>
-                <p>Physical, occupational, and speech therapy to maintain mobility and health.</p>
-            </div>
+      <div class="service-box">
+        <i class="fas fa-dumbbell"></i>
+        <h3>Therapy & Rehabilitation</h3>
+        <p>Physical, occupational, and speech therapy programs designed to maintain mobility, functionality, and quality of life.</p>
+      </div>
 
-            <div class="service-box">
-                <i class="fas fa-calendar-check"></i>
-                <h3>Activity Programs</h3>
-                <p>Engaging social, recreational, and creative activities to promote well-being.</p>
-            </div>
+      <div class="service-box">
+        <i class="fas fa-calendar-check"></i>
+        <h3>Activity Programs</h3>
+        <p>Engaging social, recreational, and creative activities that stimulate the mind, foster connections, and promote emotional well-being.</p>
+      </div>
 
-            <div class="service-box">
-                <i class="fas fa-wheelchair"></i>
-                <h3>Mobility Assistance</h3>
-                <p>Support for residents with mobility challenges, including walking aids and lifts.</p>
-            </div>
+      <div class="service-box">
+        <i class="fas fa-wheelchair"></i>
+        <h3>Mobility Assistance</h3>
+        <p>Professional support for residents with mobility challenges, including walking aids, transfer assistance, and customized mobility plans.</p>
+      </div>
 
-            <div class="service-box">
-                <i class="fas fa-ambulance"></i>
-                <h3>Emergency Response</h3>
-                <p>24/7 rapid response for emergencies with immediate medical assistance.</p>
-            </div>
+      <div class="service-box">
+        <i class="fas fa-ambulance"></i>
+        <h3>Emergency Response</h3>
+        <p>24/7 rapid response system for emergencies with immediate access to medical assistance and transportation when needed.</p>
+      </div>
+    </div>
+
+    <div class="service-categories">
+      <div class="service-category">
+        <h2>Residential Care Services</h2>
+        <p>Our residential care facilities provide comprehensive support in a comfortable, home-like environment designed for seniors who require assistance with daily activities and healthcare needs.</p>
+        <ul>
+          <li><strong>Permanent Accommodation:</strong> Long-term living arrangements with personalized care plans</li>
+          <li><strong>Respite Care:</strong> Short-term stays providing temporary relief for primary caregivers</li>
+          <li><strong>Memory Care:</strong> Specialized programs for residents with dementia or Alzheimer's disease</li>
+          <li><strong>Palliative Care:</strong> Compassionate end-of-life care focused on comfort and dignity</li>
+          <li><strong>Secure Environment:</strong> Safe living spaces with appropriate supervision and security measures</li>
+        </ul>
+      </div>
+
+      <div class="service-category">
+        <h2>In-Home Care Services</h2>
+        <p>Our in-home care services allow seniors to maintain independence while receiving necessary support in the comfort of their own homes.</p>
+        <ul>
+          <li><strong>Personal Care:</strong> Assistance with bathing, dressing, grooming, and toileting</li>
+          <li><strong>Household Support:</strong> Help with light housekeeping, laundry, and meal preparation</li>
+          <li><strong>Medication Supervision:</strong> Reminders and assistance with medication management</li>
+          <li><strong>Transportation:</strong> Accompaniment to medical appointments and social activities</li>
+          <li><strong>Companionship:</strong> Regular visits providing social interaction and emotional support</li>
+        </ul>
+      </div>
+
+      <div class="service-category">
+        <h2>Health & Wellness Services</h2>
+        <p>We provide comprehensive health and wellness services designed to maintain and improve the physical and mental well-being of our residents.</p>
+        <ul>
+          <li><strong>Regular Health Assessments:</strong> Ongoing monitoring of vital signs and health conditions</li>
+          <li><strong>Specialized Dietary Plans:</strong> Customized nutrition programs addressing individual health needs</li>
+          <li><strong>Fitness Programs:</strong> Gentle exercise classes tailored to different mobility levels</li>
+          <li><strong>Mental Health Support:</strong> Counseling and social activities to promote emotional well-being</li>
+          <li><strong>Coordination with Specialists:</strong> Management of external healthcare appointments and services</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="testimonials">
+      <h2>What Families Say About Our Services</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial">
+          <p>"The care and attention my mother receives at ACMS has exceeded our expectations. The staff treats her with respect and dignity, and she's happier than she's been in years."</p>
+          <span class="testimonial-author">- Jennifer T., Family Member</span>
         </div>
-    </main>
+        <div class="testimonial">
+          <p>"Moving my father to ACMS was one of the best decisions we've made. The facility is beautiful, the care is exceptional, and the staff is truly dedicated to the well-being of each resident."</p>
+          <span class="testimonial-author">- Michael R., Family Member</span>
+        </div>
+        <div class="testimonial">
+          <p>"The in-home care services have allowed my wife to maintain her independence while getting the support she needs. The caregivers are professional, compassionate, and reliable."</p>
+          <span class="testimonial-author">- Robert S., Spouse</span>
+        </div>
+      </div>
+    </div>
 
-    <footer>
-        <div class="container footer-content">
-          <div>
-            <h4>Contact Us</h4>
-            <p><i class="fas fa-phone"></i> 1800-AGEDCARE</p>
-            <p><i class="fas fa-envelope"></i> info@acms.com</p>
-            <p><i class="fas fa-map-marker-alt"></i> 123 Care Street, Melbourne</p>
-          </div>
-          <div>
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Login</a></li>
-              <li><a href="#">Register</a></li>
-            </ul>
-          </div>
+    <div class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <div class="faq-question">What levels of care do you provide?</div>
+        <div class="faq-answer">We offer various levels of care, including independent living with minimal assistance, assisted living with daily support, and comprehensive care for those with complex health needs. Each resident receives a personalized care plan based on their specific requirements.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">How do you ensure the safety of residents?</div>
+        <div class="faq-answer">Our facilities are equipped with 24/7 monitoring systems, emergency call buttons in all rooms, secure entry/exit points, and round-the-clock staffing. We conduct regular safety drills and maintain strict infection control protocols.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">What is the process for booking accommodation?</div>
+        <div class="faq-answer">The process begins with an initial inquiry, followed by a needs assessment and facility tour. Once we understand the specific needs, we work with families to find the most suitable accommodation and develop a personalized care plan. You can start the process by using our online booking form.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Do you accept insurance or government subsidies?</div>
+        <div class="faq-answer">Yes, we work with various insurance providers and accept eligible government subsidies. Our administrative team can help you understand what financial assistance options are available and guide you through the application process.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">How can family members stay involved in care decisions?</div>
+        <div class="faq-answer">We believe in collaborative care and encourage family involvement. We hold regular care plan meetings, provide secure online portals for families to access updates, and welcome family visits. Our staff is always available to discuss any concerns or questions.</div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Booking Modal -->
+  <div id="bookingModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" id="closeModal">&times;</span>
+      <h2>Book Accommodation</h2>
+      <p>Please fill out the form below to book accommodation or schedule a tour of our facilities. One of our care coordinators will contact you within 24 hours to discuss your needs.</p>
+      
+      <form id="bookingForm">
+        <div class="form-group">
+          <label for="residentName">Resident's Name</label>
+          <input type="text" id="residentName" class="form-control" required>
         </div>
-        <div class="copyright">
-          © 2025 Aged Care Management System (ACMS). All rights reserved.
+        
+        <div class="form-group">
+          <label for="contactName">Contact Person's Name</label>
+          <input type="text" id="contactName" class="form-control" required>
         </div>
-      </footer>
-    </body>
-    </html>
+        
+        <div class="form-group">
+          <label for="relationship">Relationship to Resident</label>
+          <select id="relationship" class="form-control" required>
+            <option value="">Select relationship</option>
+            <option value="spouse">Spouse</option>
+            <option value="child">Child</option>
+            <option value="sibling">Sibling</option>
+            <option value="other-relative">Other Relative</option>
+            <option value="friend">Friend</option>
+            <option value="guardian">Legal Guardian</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="accommodationType">Accommodation Type</label>
+          <select id="accommodationType" class="form-control" required>
+            <option value="">Select accommodation type</option>
+            <option value="private-room">Private Room</option>
+            <option value="shared-room">Shared Room</option>
+            <option value="suite">Suite with Private Bathroom</option>
+            <option value="memory-care">Memory Care Unit</option>
+            <option value="respite">Short-term Respite Stay</option>
+            <option value="not-sure">Not Sure (Need Advice)</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="moveInDate">Expected Move-in Date</label>
+          <input type="date" id="moveInDate" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="careNeeds">Care Needs and Special Requirements</label>
+          <textarea id="careNeeds" class="form-control" rows="4"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="tourRequest">Would you like to schedule a tour?</label>
+          <select id="tourRequest" class="form-control" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+        
+        <div class="form-group" id="tourDateContainer" style="display: block;">
+          <label for="tourDate">Preferred Tour Date</label>
+          <input type="date" id="tourDate" class="form-control">
+        </div>
+        
+        <button type="submit" class="submit-btn">Submit Booking Request</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container footer-content">
+      <div>
+        <h4>Contact Us</h4>
+        <p><i class="fas fa-phone"></i> 1800-AGEDCARE</p>
+        <p><i class="fas fa-envelope"></i> info@acms.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> 123 Care Street, Melbourne</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="register.html">Register</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      © 2025 Aged Care Management System (ACMS). All rights reserved.
+    </div>
+  </footer>
+  <script src="servicesscript.js"></script>
+</body>
+</html>
