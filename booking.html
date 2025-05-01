@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ACMS - Services & Booking | Aged Care Management System</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="servicesscript.js"></script>
+</head>
+<body>
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+          <span class="close-modal" id="closeModal">&times;</span>
+          <h2>Book Accommodation</h2>
+          <p>Please fill out the form below to book accommodation or schedule a tour of our facilities. One of our care coordinators will contact you within 24 hours to discuss your needs.</p>
+          
+          <form id="bookingForm">
+            <div class="form-group">
+              <label for="residentName">Resident's Name</label>
+              <input type="text" id="residentName" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="contactName">Contact Person's Name</label>
+              <input type="text" id="contactName" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="relationship">Relationship to Resident</label>
+              <select id="relationship" class="form-control" required>
+                <option value="">Select relationship</option>
+                <option value="spouse">Spouse</option>
+                <option value="child">Child</option>
+                <option value="sibling">Sibling</option>
+                <option value="other-relative">Other Relative</option>
+                <option value="friend">Friend</option>
+                <option value="guardian">Legal Guardian</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="accommodationType">Accommodation Type</label>
+              <select id="accommodationType" class="form-control" required>
+                <option value="">Select accommodation type</option>
+                <option value="private-room">Private Room</option>
+                <option value="shared-room">Shared Room</option>
+                <option value="suite">Suite with Private Bathroom</option>
+                <option value="memory-care">Memory Care Unit</option>
+                <option value="respite">Short-term Respite Stay</option>
+                <option value="not-sure">Not Sure (Need Advice)</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="moveInDate">Expected Move-in Date</label>
+              <input type="date" id="moveInDate" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="careNeeds">Care Needs and Special Requirements</label>
+              <textarea id="careNeeds" class="form-control" rows="4"></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label for="tourRequest">Would you like to schedule a tour?</label>
+              <select id="tourRequest" class="form-control" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            
+            <div class="form-group" id="tourDateContainer" style="display: block;">
+              <label for="tourDate">Preferred Tour Date</label>
+              <input type="date" id="tourDate" class="form-control">
+            </div>
+            
+            <button type="submit" class="submit-btn">Submit Booking Request</button>
+          </form>
+        </div>
+      </div>
+      </body>
+      </html>
