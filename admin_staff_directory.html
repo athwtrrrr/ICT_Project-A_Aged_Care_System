@@ -3,290 +3,543 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ACMS Staff Shifts Overview</title>
+    <title>ACMS Staff Management System</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
+        :root {
+            --primary-blue: #007bff;
+            --light-blue: #e7f3ff;
+            --dark-blue: #0056b3;
+            --light-gray: #f8f9fa;
+            --dark-gray: #343a40;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+        }
+
+        .navbar {
+            background-color: var(--primary-blue) !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            border-left: 4px solid var(--primary-blue);
+        }
+
         .staff-card {
             cursor: pointer;
-            transition: background-color 0.3s ease;
-            padding: 15px;
-            text-align: center;
-            height: 200px;
+            height: 180px;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            position: relative;
+            background-color: white;
         }
 
-        .card-expanded {
-            background-color: #f8f9fa;
+            .staff-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                background-color: var(--light-blue);
+            }
+
+            .staff-card .card-body {
+                padding: 20px;
+                text-align: center;
+                width: 100%;
+            }
+
+        .staff-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(0, 123, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+            font-size: 20px;
         }
 
-        .icon {
-            font-size: 24px;
+        .staff-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--dark-gray);
+        }
+
+        .staff-position {
+            font-size: 13px;
+            color: #6c757d;
             margin-bottom: 10px;
         }
 
-        .plus-sign {
-            cursor: pointer;
-            color: #007bff;
+        .staff-details {
+            display: none;
+            padding: 15px;
+            background-color: var(--light-blue);
+            border-top: 1px solid #dee2e6;
+            font-size: 13px;
         }
 
-            .plus-sign:hover {
-                color: #0056b3;
+            .staff-details.show {
+                display: block;
             }
 
-        .staff-card:hover {
-            background-color: #e9ecef;
+        .detail-item {
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
         }
 
-        .table td, .table th {
-            padding: 15px;
-            text-align: center;
+        .detail-label {
+            font-weight: 500;
+            color: #6c757d;
         }
 
-        .table th {
-            background-color: #f1f1f1;
+        .detail-value {
+            color: var(--dark-gray);
+        }
+
+        .toggle-details {
+            color: var(--primary-blue);
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+            .toggle-details:hover {
+                text-decoration: underline;
+            }
+
+        .section-title {
+            color: var(--dark-gray);
+            font-weight: 600;
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .table-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .table {
+            margin-bottom: 0;
+        }
+
+            .table thead th {
+                background-color: var(--primary-blue);
+                color: white;
+                border-bottom: none;
+                font-weight: 500;
+                padding: 12px 15px;
+            }
+
+            .table tbody tr {
+                transition: all 0.2s ease;
+            }
+
+                .table tbody tr:hover {
+                    background-color: rgba(0, 123, 255, 0.05);
+                }
+
+            .table td {
+                vertical-align: middle;
+                padding: 12px 15px;
+                border-top: 1px solid #dee2e6;
+            }
+
+        .shift-cell {
+            min-width: 80px;
+        }
+
+        .btn-save {
+            background-color: var(--primary-blue);
+            border: none;
+            padding: 10px 25px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+            .btn-save:hover {
+                background-color: var(--dark-blue);
+            }
+
+        .off-day {
+            background-color: rgba(220, 53, 69, 0.1);
+            color: #dc3545;
+            font-weight: 500;
+        }
+
+        .active-shift {
+            background-color: rgba(0, 123, 255, 0.1);
+            color: var(--primary-blue);
+            font-weight: 500;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
         }
 
-        .role-content {
-            display: none;
-            margin-top: 10px;
-        }
-
-            .role-content.show {
-                display: block;
+        @media (max-width: 768px) {
+            .staff-card {
+                height: auto;
             }
+        }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-dark bg-primary mb-4">
         <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1">ACMS Admin</span>
+            <span class="navbar-brand mb-0 h1">
+ACMS Admin
+            </span>
         </div>
     </nav>
 
     <div class="container">
-        <h3 class="mb-4">Staff Overview</h3>
-        <div class="row row-cols-1 row-cols-md-5 g-3 mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="section-title">
+                <i class="fas fa-users me-2"></i>Staff Overview
+            </h3>
+            <button class="btn btn-sm btn-outline-primary">
+                <i class="fas fa-plus me-1"></i> Add Staff
+            </button>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 g-4 mb-5">
+            <!-- Staff Card 1 -->
             <div class="col">
-                <div class="card staff-card" id="card-1">
+                <div class="card staff-card">
                     <div class="card-body">
-                        <i class="fas fa-user icon"></i>
-                        <h5 class="card-title mb-0">Mary Jones</h5>
-                        <p class="card-text">
-                            <span class="plus-sign" onclick="toggleRole(1)">+</span>
-                            <div class="role-content" id="role-1">
-                                <p>Nurse - ICU</p>
-                            </div>
-                        </p>
+                        <div class="staff-icon">
+                            <i class="fas fa-user-nurse"></i>
+                        </div>
+                        <h5 class="staff-name">Mary Jones</h5>
+                        <p class="staff-position">Nurse - ICU</p>
+                        <span class="toggle-details" onclick="toggleDetails(1)">
+                            <i class="fas fa-chevron-down me-1"></i> Details
+                        </span>
+                    </div>
+                    <div class="staff-details" id="details-1">
+                        <div class="detail-item">
+                            <span class="detail-label">ID:</span>
+                            <span class="detail-value">EMP-1001</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Contact:</span>
+                            <span class="detail-value">mjones@acms.org</span>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Staff Card 2 -->
             <div class="col">
-                <div class="card staff-card" id="card-2">
+                <div class="card staff-card">
                     <div class="card-body">
-                        <i class="fas fa-user icon"></i>
-                        <h5 class="card-title mb-0">David Lee</h5>
-                        <p class="card-text">
-                            <span class="plus-sign" onclick="toggleRole(2)">+</span>
-                            <div class="role-content" id="role-2">
-                                <p>Cook - Vegan Cuisine</p>
-                            </div>
-                        </p>
+                        <div class="staff-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h5 class="staff-name">David Lee</h5>
+                        <p class="staff-position">Cook - Vegan</p>
+                        <span class="toggle-details" onclick="toggleDetails(2)">
+                            <i class="fas fa-chevron-down me-1"></i> Details
+                        </span>
+                    </div>
+                    <div class="staff-details" id="details-2">
+                        <div class="detail-item">
+                            <span class="detail-label">ID:</span>
+                            <span class="detail-value">EMP-1002</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Contact:</span>
+                            <span class="detail-value">dlee@acms.org</span>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Staff Card 3 -->
             <div class="col">
-                <div class="card staff-card" id="card-3">
+                <div class="card staff-card">
                     <div class="card-body">
-                        <i class="fas fa-user icon"></i>
-                        <h5 class="card-title mb-0">Aisha Patel</h5>
-                        <p class="card-text">
-                            <span class="plus-sign" onclick="toggleRole(3)">+</span>
-                            <div class="role-content" id="role-3">
-                                <p>Receptionist - Front Desk</p>
-                            </div>
-                        </p>
+                        <div class="staff-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h5 class="staff-name">Aisha Patel</h5>
+                        <p class="staff-position">Receptionist</p>
+                        <span class="toggle-details" onclick="toggleDetails(3)">
+                            <i class="fas fa-chevron-down me-1"></i> Details
+                        </span>
+                    </div>
+                    <div class="staff-details" id="details-3">
+                        <div class="detail-item">
+                            <span class="detail-label">ID:</span>
+                            <span class="detail-value">EMP-1003</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Contact:</span>
+                            <span class="detail-value">apatel@acms.org</span>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Staff Card 4 -->
             <div class="col">
-                <div class="card staff-card" id="card-4">
+                <div class="card staff-card">
                     <div class="card-body">
-                        <i class="fas fa-user icon"></i>
-                        <h5 class="card-title mb-0">Tom Nguyen</h5>
-                        <p class="card-text">
-                            <span class="plus-sign" onclick="toggleRole(4)">+</span>
-                            <div class="role-content" id="role-4">
-                                <p>Cleaner - Night Shift</p>
-                            </div>
-                        </p>
+                        <div class="staff-icon">
+                            <i class="fas fa-broom"></i>
+                        </div>
+                        <h5 class="staff-name">Tom Nguyen</h5>
+                        <p class="staff-position">Cleaner</p>
+                        <span class="toggle-details" onclick="toggleDetails(4)">
+                            <i class="fas fa-chevron-down me-1"></i> Details
+                        </span>
+                    </div>
+                    <div class="staff-details" id="details-4">
+                        <div class="detail-item">
+                            <span class="detail-label">ID:</span>
+                            <span class="detail-value">EMP-1004</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Contact:</span>
+                            <span class="detail-value">tnguyen@acms.org</span>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Staff Card 5 -->
             <div class="col">
-                <div class="card staff-card" id="card-5">
+                <div class="card staff-card">
                     <div class="card-body">
-                        <i class="fas fa-user icon"></i>
-                        <h5 class="card-title mb-0">Sophia Chen</h5>
-                        <p class="card-text">
-                            <span class="plus-sign" onclick="toggleRole(5)">+</span>
-                            <div class="role-content" id="role-5">
-                                <p>Therapist - Massage Therapy</p>
-                            </div>
-                        </p>
+                        <div class="staff-icon">
+                            <i class="fas fa-hands"></i>
+                        </div>
+                        <h5 class="staff-name">Sophia Chen</h5>
+                        <p class="staff-position">Therapist</p>
+                        <span class="toggle-details" onclick="toggleDetails(5)">
+                            <i class="fas fa-chevron-down me-1"></i> Details
+                        </span>
                     </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card staff-card" id="card-6">
-                    <div class="card-body">
-                        <i class="fas fa-user icon"></i>
-                        <h5 class="card-title mb-0">Amir Khan</h5>
-                        <p class="card-text">
-                            <span class="plus-sign" onclick="toggleRole(6)">+</span>
-                            <div class="role-content" id="role-6">
-                                <p>Security - Night Security</p>
-                            </div>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card staff-card" id="card-7">
-                    <div class="card-body">
-                        <i class="fas fa-user icon"></i>
-                        <h5 class="card-title mb-0">Emily Wright</h5>
-                        <p class="card-text">
-                            <span class="plus-sign" onclick="toggleRole(7)">+</span>
-                            <div class="role-content" id="role-7">
-                                <p>Assistant - Admin Support</p>
-                            </div>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card staff-card" id="card-8">
-                    <div class="card-body">
-                        <i class="fas fa-user icon"></i>
-                        <h5 class="card-title mb-0">Chris Black</h5>
-                        <p class="card-text">
-                            <span class="plus-sign" onclick="toggleRole(8)">+</span>
-                            <div class="role-content" id="role-8">
-                                <p>Technician - IT Support</p>
-                            </div>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card staff-card" id="card-9">
-                    <div class="card-body">
-                        <i class="fas fa-user icon"></i>
-                        <h5 class="card-title mb-0">Linda Green</h5>
-                        <p class="card-text">
-                            <span class="plus-sign" onclick="toggleRole(9)">+</span>
-                            <div class="role-content" id="role-9">
-                                <p>Dietitian - Nutrition</p>
-                            </div>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card staff-card" id="card-10">
-                    <div class="card-body">
-                        <i class="fas fa-user icon"></i>
-                        <h5 class="card-title mb-0">Raj Kumar</h5>
-                        <p class="card-text">
-                            <span class="plus-sign" onclick="toggleRole(10)">+</span>
-                            <div class="role-content" id="role-10">
-                                <p>Maintenance - Electrical</p>
-                            </div>
-                        </p>
+                    <div class="staff-details" id="details-5">
+                        <div class="detail-item">
+                            <span class="detail-label">ID:</span>
+                            <span class="detail-value">EMP-1005</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Contact:</span>
+                            <span class="detail-value">schen@acms.org</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <h4 class="mb-3">Weekly Shift Schedule</h4>
-        <div class="table-responsive">
-            <table class="table table-bordered" contenteditable="true" id="shift-table">
-                <thead class="table-light">
-                    <tr>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>May 1</th>
-                        <th>May 2</th>
-                        <th>May 3</th>
-                        <th>May 4</th>
-                        <th>May 5</th>
-                        <th>May 6</th>
-                        <th>May 7</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>Mary Jones</td><td>Nurse</td><td>8-4</td><td>8-4</td><td>Off</td><td>8-4</td><td>8-4</td><td>Off</td><td>8-4</td></tr>
-                    <tr><td>David Lee</td><td>Cook</td><td>6-2</td><td>6-2</td><td>6-2</td><td>Off</td><td>6-2</td><td>6-2</td><td>Off</td></tr>
-                    <tr><td>Aisha Patel</td><td>Receptionist</td><td>9-5</td><td>9-5</td><td>Off</td><td>9-5</td><td>9-5</td><td>Off</td><td>9-5</td></tr>
-                    <tr><td>Tom Nguyen</td><td>Cleaner</td><td>7-3</td><td>7-3</td><td>7-3</td><td>7-3</td><td>7-3</td><td>7-3</td><td>Off</td></tr>
-                    <tr><td>Sophia Chen</td><td>Therapist</td><td>10-6</td><td>10-6</td><td>10-6</td><td>Off</td><td>10-6</td><td>10-6</td><td>10-6</td></tr>
-                    <tr><td>Amir Khan</td><td>Security</td><td>4-12</td><td>4-12</td><td>4-12</td><td>Off</td><td>4-12</td><td>4-12</td><td>Off</td></tr>
-                    <tr><td>Emily Wright</td><td>Assistant</td><td>12-8</td><td>12-8</td><td>12-8</td><td>Off</td><td>12-8</td><td>12-8</td><td>12-8</td></tr>
-                    <tr><td>Chris Black</td><td>Technician</td><td>9-5</td><td>9-5</td><td>Off</td><td>9-5</td><td>9-5</td><td>Off</td><td>9-5</td></tr>
-                    <tr><td>Linda Green</td><td>Dietitian</td><td>10-6</td><td>10-6</td><td>Off</td><td>10-6</td><td>10-6</td><td>10-6</td><td>Off</td></tr>
-                    <tr><td>Raj Kumar</td><td>Maintenance</td><td>8-4</td><td>Off</td><td>8-4</td><td>8-4</td><td>Off</td><td>8-4</td><td>8-4</td></tr>
-                </tbody>
-            </table>
+        <div class="table-container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3 class="section-title">
+                    <i class="far fa-calendar-alt me-2"></i>Weekly Shift Schedule
+                </h3>
+                <button class="btn btn-sm btn-outline-primary">
+                    <i class="fas fa-print me-1"></i> Print
+                </button>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table" contenteditable="true" id="shift-table">
+                    <thead>
+                        <tr>
+                            <th>Employee</th>
+                            <th>Position</th>
+                            <th>Mon<br>May 1</th>
+                            <th>Tue<br>May 2</th>
+                            <th>Wed<br>May 3</th>
+                            <th>Thu<br>May 4</th>
+                            <th>Fri<br>May 5</th>
+                            <th>Sat<br>May 6</th>
+                            <th>Sun<br>May 7</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Mary Jones</strong></td>
+                            <td>Nurse</td>
+                            <td class="shift-cell active-shift">8:00-16:00</td>
+                            <td class="shift-cell active-shift">8:00-16:00</td>
+                            <td class="shift-cell off-day">OFF</td>
+                            <td class="shift-cell active-shift">8:00-16:00</td>
+                            <td class="shift-cell active-shift">8:00-16:00</td>
+                            <td class="shift-cell off-day">OFF</td>
+                            <td class="shift-cell active-shift">8:00-16:00</td>
+                        </tr>
+                        <tr>
+                            <td><strong>David Lee</strong></td>
+                            <td>Cook</td>
+                            <td class="shift-cell active-shift">6:00-14:00</td>
+                            <td class="shift-cell active-shift">6:00-14:00</td>
+                            <td class="shift-cell active-shift">6:00-14:00</td>
+                            <td class="shift-cell off-day">OFF</td>
+                            <td class="shift-cell active-shift">6:00-14:00</td>
+                            <td class="shift-cell active-shift">6:00-14:00</td>
+                            <td class="shift-cell off-day">OFF</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Aisha Patel</strong></td>
+                            <td>Receptionist</td>
+                            <td class="shift-cell active-shift">9:00-17:00</td>
+                            <td class="shift-cell active-shift">9:00-17:00</td>
+                            <td class="shift-cell off-day">OFF</td>
+                            <td class="shift-cell active-shift">9:00-17:00</td>
+                            <td class="shift-cell active-shift">9:00-17:00</td>
+                            <td class="shift-cell off-day">OFF</td>
+                            <td class="shift-cell active-shift">9:00-17:00</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tom Nguyen</strong></td>
+                            <td>Cleaner</td>
+                            <td class="shift-cell active-shift">19:00-3:00</td>
+                            <td class="shift-cell active-shift">19:00-3:00</td>
+                            <td class="shift-cell active-shift">19:00-3:00</td>
+                            <td class="shift-cell active-shift">19:00-3:00</td>
+                            <td class="shift-cell active-shift">19:00-3:00</td>
+                            <td class="shift-cell active-shift">19:00-3:00</td>
+                            <td class="shift-cell off-day">OFF</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sophia Chen</strong></td>
+                            <td>Therapist</td>
+                            <td class="shift-cell active-shift">10:00-18:00</td>
+                            <td class="shift-cell active-shift">10:00-18:00</td>
+                            <td class="shift-cell active-shift">10:00-18:00</td>
+                            <td class="shift-cell off-day">OFF</td>
+                            <td class="shift-cell active-shift">10:00-18:00</td>
+                            <td class="shift-cell active-shift">10:00-18:00</td>
+                            <td class="shift-cell active-shift">10:00-18:00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="d-flex justify-content-between mt-4">
+                <div>
+                    <span class="badge active-shift me-2">Active Shift</span>
+                    <span class="badge off-day">Day Off</span>
+                </div>
+                <button class="btn btn-save" onclick="saveTable()">
+                    <i class="fas fa-save me-1"></i> Save Schedule
+                </button>
+            </div>
         </div>
-        <button class="btn btn-success mt-3" onclick="saveTable()">Save</button>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        function toggleRole(cardId) {
-            const roleContent = document.getElementById(`role-${cardId}`);
-            roleContent.classList.toggle('show');
-            const plusSign = document.querySelector(`#card-${cardId} .plus-sign`);
-            if (roleContent.classList.contains('show')) {
-                plusSign.textContent = `-`;
+        function toggleDetails(cardId) {
+            const details = document.getElementById(`details-${cardId}`);
+            const toggleBtn = document.querySelector(`#details-${cardId}`).previousElementSibling.querySelector('.toggle-details');
+
+            details.classList.toggle('show');
+
+            if (details.classList.contains('show')) {
+                toggleBtn.innerHTML = '<i class="fas fa-chevron-up me-1"></i> Hide Details';
             } else {
-                plusSign.textContent = `+`;
+                toggleBtn.innerHTML = '<i class="fas fa-chevron-down me-1"></i> Details';
             }
         }
 
         function saveTable() {
             const tableContent = [];
             const rows = document.querySelectorAll('#shift-table tr');
+
             rows.forEach(row => {
                 const cols = row.querySelectorAll('td');
                 const rowData = Array.from(cols).map(col => col.innerText);
                 tableContent.push(rowData.join('\t'));
             });
+
             localStorage.setItem('shiftData', JSON.stringify(tableContent));
-            alert("Shift data saved successfully.");
+
+            // Show success notification
+            const alert = document.createElement('div');
+            alert.className = 'alert alert-success position-fixed bottom-0 end-0 m-3';
+            alert.style.zIndex = '1000';
+            alert.style.transition = 'all 0.3s ease';
+            alert.innerHTML = '<i class="fas fa-check-circle me-2"></i> Schedule saved successfully!';
+            document.body.appendChild(alert);
+
+            setTimeout(() => {
+                alert.style.opacity = '0';
+                setTimeout(() => alert.remove(), 300);
+            }, 3000);
         }
 
         window.onload = function () {
             const savedData = JSON.parse(localStorage.getItem('shiftData'));
+
             if (savedData) {
                 const rows = document.querySelectorAll('#shift-table tr');
+
                 rows.forEach((row, rowIndex) => {
                     const cols = row.querySelectorAll('td');
+
                     if (rowIndex > 0 && savedData[rowIndex - 1]) {
                         const savedRow = savedData[rowIndex - 1].split('\t');
+
                         savedRow.forEach((data, colIndex) => {
-                            if (cols[colIndex]) cols[colIndex].innerText = data;
+                            if (cols[colIndex]) {
+                                // Preserve cell classes when loading saved data
+                                const originalClasses = cols[colIndex].className;
+                                cols[colIndex].innerText = data;
+                                cols[colIndex].className = originalClasses;
+                            }
                         });
                     }
                 });
             }
+
+            // Add click handlers to all staff cards
+            document.querySelectorAll('.staff-card').forEach(card => {
+                card.addEventListener('click', function (e) {
+                    // Don't toggle if clicking on the details toggle
+                    if (!e.target.classList.contains('toggle-details') &&
+                        !e.target.closest('.toggle-details')) {
+                        const cardBody = this.querySelector('.card-body');
+                        const toggleBtn = cardBody.querySelector('.toggle-details');
+                        const details = cardBody.nextElementSibling;
+
+                        details.classList.toggle('show');
+
+                        if (details.classList.contains('show')) {
+                            toggleBtn.innerHTML = '<i class="fas fa-chevron-up me-1"></i> Hide Details';
+                        } else {
+                            toggleBtn.innerHTML = '<i class="fas fa-chevron-down me-1"></i> Details';
+                        }
+                    }
+                });
+            });
         };
     </script>
 </body>
