@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 2) Your resident data
     const residents = [
       { id: "R001", name: "John Carter",     age: 85, room: "A204", admitDate: "2025-03-01", reason: "Dementia" },
-      { id: "R002", name: "Emma Davis",      age: 78, room: "A101", admitDate: "2025-02-15", reason: "Stroke Recovery" },
+      { id: "R002", name: "Emma Davis",      age: 78, room: "A101", admitDate: "2025-02-15", reason: "Dementia" },
       { id: "R003", name: "Michael Brown",   age: 82, room: "B302", admitDate: "2025-01-10", reason: "Arthritis" }
     ];
   
