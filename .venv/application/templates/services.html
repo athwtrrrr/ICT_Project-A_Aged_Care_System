@@ -6,10 +6,10 @@
   <p class="lead text-center mb-5">We offer a comprehensive range of services tailored to meet the unique needs of each resident. Our aim is to provide a safe, comfortable, and dignified living environment.</p>
 
   <div class="text-center mb-5">
-    <a href="{{ url_for('routes.booking') }}" class="btn btn-primary btn-lg">Book a Service</a>
+    <a href="booking.html" class="btn btn-primary btn-lg">Book a Service</a>
   </div>
 
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
     <!-- Service Card -->
     <div class="col">
       <div class="card h-100 text-center shadow-sm">
@@ -84,7 +84,176 @@
         </div>
       </div>
     </div>
+    <div class="col">
+      <div class="card h-100 text-center shadow-sm">
+        <div class="card-body">
+          <i class="fas fa-hands-helping fa-2x text-primary mb-3"></i>
+          <h5 class="card-title">Family Support</h5>
+          <p class="card-text">Resources and counseling services to help families navigate the care journey.</p>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- Testimonials Section -->
+  <section class="py-5 bg-light rounded-3 mb-5">
+    <div class="container">
+      <h2 class="text-center text-primary mb-4">What Families Say About Us</h2>
+      <div class="row">
+        <div class="col-12">
+          <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="card border-0 bg-transparent">
+                  <div class="card-body text-center">
+                    <p class="lead fst-italic mb-4">"The care and attention my mother receives at ACMS is exceptional. The staff treat her with dignity and respect, and the range of activities keeps her engaged and happy."</p>
+                    <div class="d-flex justify-content-center">
+                      <div class="text-center">
+                        <h5 class="mb-1">Sarah Johnson</h5>
+                        <p class="text-muted small">Daughter of Resident</p>
+                        <div class="text-warning mb-3">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="card border-0 bg-transparent">
+                  <div class="card-body text-center">
+                    <p class="lead fst-italic mb-4">"The medical care is top-notch! When my father had a health scare, the nursing team responded immediately and coordinated with his doctors seamlessly. We couldn't ask for better care."</p>
+                    <div class="d-flex justify-content-center">
+                      <div class="text-center">
+                        <h5 class="mb-1">Robert Thompson</h5>
+                        <p class="text-muted small">Son of Resident</p>
+                        <div class="text-warning mb-3">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="card border-0 bg-transparent">
+                  <div class="card-body text-center">
+                    <p class="lead fst-italic mb-4">"Moving my aunt to ACMS was the best decision we made. The therapy services have helped her regain mobility she thought she'd lost forever, and the social activities have brought joy back into her life."</p>
+                    <div class="d-flex justify-content-center">
+                      <div class="text-center">
+                        <h5 class="mb-1">Michelle Parker</h5>
+                        <p class="text-muted small">Niece of Resident</p>
+                        <div class="text-warning mb-3">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star-half-alt"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon bg-primary rounded-circle" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon bg-primary rounded-circle" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="mb-5">
+    <h2 class="text-center text-primary mb-4">Frequently Asked Questions</h2>
+    <div class="accordion" id="servicesAccordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            What levels of care do you provide?
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#servicesAccordion">
+          <div class="accordion-body">
+            ACMS provides a full spectrum of care ranging from independent living with minimal assistance to comprehensive nursing care for those with complex medical needs. Each resident receives a personalized care plan tailored to their specific requirements, which is regularly reviewed and adjusted as needs change.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            How are medication needs managed?
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#servicesAccordion">
+          <div class="accordion-body">
+            Our licensed nursing staff manages all medication needs according to physician orders. We maintain accurate records of all medications administered, ensure proper storage, and coordinate with pharmacies for timely refills. Our team also monitors for potential side effects and efficacy, communicating regularly with healthcare providers about any concerns.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            What types of activities do you offer?
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#servicesAccordion">
+          <div class="accordion-body">
+            We offer a diverse range of activities designed to engage residents physically, mentally, and socially. These include exercise classes, art therapy, music programs, games, outings to local attractions, educational sessions, and seasonal celebrations. Our activities team creates monthly calendars with options suitable for various interests and abilities.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            How do your dining services accommodate special dietary needs?
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#servicesAccordion">
+          <div class="accordion-body">
+            Our dining services team, led by professional chefs and dietitians, creates nutritious meals that accommodate various dietary restrictions including diabetic, low-sodium, gluten-free, and texture-modified diets. We regularly update our menu options and can work with residents and their healthcare providers to meet specific nutritional requirements while maintaining quality and flavor.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFive">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+            What therapy services are available on-site?
+          </button>
+        </h2>
+        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#servicesAccordion">
+          <div class="accordion-body">
+            We offer comprehensive therapy services including physical therapy to improve mobility and strength, occupational therapy to enhance daily living skills, and speech therapy for communication and swallowing difficulties. Our therapy team works closely with each resident to develop personalized rehabilitation plans aimed at maximizing independence and quality of life.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="text-center py-5 bg-primary text-white rounded-3">
+    <h2 class="mb-3">Ready to Learn More?</h2>
+    <p class="lead mb-4">Schedule a tour or consultation with our care team today.</p>
+    <div class="d-flex justify-content-center gap-3">
+      <a href="booking.html" class="btn btn-light btn-lg">Book a Service</a>
+      <a href="#" class="btn btn-outline-light btn-lg">Contact Us</a>
+    </div>
+  </section>
 </main>
     {%endblock%}
     <script src="static/js/servicesscript.js"></script>
