@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<main class="container py-5">
+  <h1 class="text-center text-primary mb-4">Our Services</h1>
+  <p class="lead text-center mb-5">We offer a comprehensive range of services tailored to meet the unique needs of each resident. Our aim is to provide a safe, comfortable, and dignified living environment.</p>
+
+  <div class="text-center mb-5">
+    <a href="{{ url_for('routes.booking') }}" class="btn btn-primary btn-lg">Book a Service</a>
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <!-- Service Card -->
+    <div class="col">
+      <div class="card h-100 text-center shadow-sm">
+        <div class="card-body">
+          <i class="fas fa-user-nurse fa-2x text-primary mb-3"></i>
+          <h5 class="card-title">24/7 Nursing Care</h5>
+          <p class="card-text">Round-the-clock access to trained medical professionals for continuous support.</p>
+        </div>
+      </div>
+    </div>
+    <!-- Repeat for other services -->
+    <div class="col">
+      <div class="card h-100 text-center shadow-sm">
+        <div class="card-body">
+          <i class="fas fa-pills fa-2x text-primary mb-3"></i>
+          <h5 class="card-title">Medication Management</h5>
+          <p class="card-text">Accurate administration and monitoring of prescribed medications.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 text-center shadow-sm">
+        <div class="card-body">
+          <i class="fas fa-bath fa-2x text-primary mb-3"></i>
+          <h5 class="card-title">Personal Care Assistance</h5>
+          <p class="card-text">Help with daily hygiene, grooming, bathing, and dressing needs.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 text-center shadow-sm">
+        <div class="card-body">
+          <i class="fas fa-utensils fa-2x text-primary mb-3"></i>
+          <h5 class="card-title">Meal Services</h5>
+          <p class="card-text">Nutritious meals prepared with dietary needs in mind, served daily.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 text-center shadow-sm">
+        <div class="card-body">
+          <i class="fas fa-dumbbell fa-2x text-primary mb-3"></i>
+          <h5 class="card-title">Therapy & Rehab</h5>
+          <p class="card-text">Physical, occupational, and speech therapy to maintain mobility and health.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 text-center shadow-sm">
+        <div class="card-body">
+          <i class="fas fa-calendar-check fa-2x text-primary mb-3"></i>
+          <h5 class="card-title">Activity Programs</h5>
+          <p class="card-text">Engaging social, recreational, and creative activities to promote well-being.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 text-center shadow-sm">
+        <div class="card-body">
+          <i class="fas fa-wheelchair fa-2x text-primary mb-3"></i>
+          <h5 class="card-title">Mobility Assistance</h5>
+          <p class="card-text">Support for residents with mobility challenges, including walking aids and lifts.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 text-center shadow-sm">
+        <div class="card-body">
+          <i class="fas fa-ambulance fa-2x text-primary mb-3"></i>
+          <h5 class="card-title">Emergency Response</h5>
+          <p class="card-text">24/7 rapid response for emergencies with immediate medical assistance.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+    {%endblock%}
+    <script src="static/js/servicesscript.js"></script>
